@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Love Story 💖</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+height:100vh;
+font-family:'Poppins',sans-serif;
+background:url('bg.jpg') center/cover no-repeat fixed;
+overflow:hidden;
+}
+
+/* SOFT OVERLAY */
+body::before{
+content:"";
+position:fixed;
+inset:0;
+background:linear-gradient(to bottom,rgba(0,0,0,.35),rgba(0,0,0,.7));
+z-index:-1;
+}
+
+/* START SCREEN */
+#start{
+position:fixed;
+inset:0;
+display:flex;
+align-items:center;
+justify-content:center;
+background:rgba(0,0,0,.55);
+z-index:100;
+}
+
+.start-box{
+background:rgba(255,255,255,.18);
+backdrop-filter:blur(15px);
+padding:30px 40px;
+border-radius:26px;
+text-align:center;
+color:white;
+box-shadow:0 30px 80px rgba(0,0,0,.6);
+animation:fadeIn 1s ease;
+}
+
+@keyframes fadeIn{
+from{opacity:0;transform:scale(.9)}
+to{opacity:1}
+}
+
+.start-btn{
+margin-top:16px;
+padding:14px 34px;
+border:none;
+border-radius:30px;
+font-size:1.1rem;
+cursor:pointer;
+background:linear-gradient(135deg,#ff4d8d,#ff86b3);
+color:#fff;
+box-shadow:0 10px 25px rgba(255,77,141,.5);
+}
+
+/* MAIN CARD */
+.card{
+width:94%;
+max-width:440px;
+margin:auto;
+margin-top:6vh;
+padding:26px;
+border-radius:28px;
+background:rgba(255,255,255,.18);
+backdrop-filter:blur(18px);
+border:1px solid rgba(255,255,255,.25);
+box-shadow:0 35px 80px rgba(0,0,0,.6);
+text-align:center;
+display:none;
+animation:slideUp 1s ease;
+}
+
+@keyframes slideUp{
+from{opacity:0;transform:translateY(40px)}
+to{opacity:1}
+}
+
+/* SLIDES */
+.slide{display:none}
+.slide.active{display:block;animation:fade .8s ease}
+
+@keyframes fade{
+from{opacity:0;transform:scale(.95)}
+to{opacity:1}
+}
+
+/* TEXT */
+h1{
+font-family:'Dancing Script',cursive;
+font-size:2.5rem;
+color:#fff;
+margin-bottom:6px;
+}
+
+p{
+color:#f2f2f2;
+font-size:1rem;
+line-height:1.7;
+margin-top:8px;
+}
+
+/* IMAGE */
+img{
+width:180px;
+border-radius:20px;
+margin:14px 0;
+box-shadow:0 18px 40px rgba(0,0,0,.6);
+animation:float 4s ease-in-out infinite;
+}
+
+@keyframes float{
+0%,100%{transform:translateY(0)}
+50%{transform:translateY(-8px)}
+}
+
+/* LOVE NOTE */
+.note{
+margin-top:14px;
+padding:18px;
+background:rgba(255,255,255,.9);
+border-radius:18px;
+color:#333;
+font-family:'Dancing Script',cursive;
+font-size:1.25rem;
+line-height:1.6;
+box-shadow:0 10px 25px rgba(0,0,0,.35);
+animation:noteIn .8s ease;
+}
+
+@keyframes noteIn{
+from{opacity:0;transform:translateY(20px)}
+to{opacity:1}
+}
+
+/* BUTTON */
+.btn{
+margin-top:18px;
+padding:12px 30px;
+border:none;
+border-radius:30px;
+font-size:1rem;
+cursor:pointer;
+background:linear-gradient(135deg,#ff4d8d,#ff86b3);
+color:#fff;
+box-shadow:0 10px 25px rgba(255,77,141,.5);
+}
+
+/* CALL */
+.call{
+display:inline-block;
+margin-top:18px;
+padding:12px 32px;
+border-radius:30px;
+background:#25D366;
+color:white;
+text-decoration:none;
+font-size:1rem;
+box-shadow:0 10px 25px rgba(0,0,0,.4);
+}
+
+/* FLOWERS & HEARTS */
+.effects{
+position:fixed;
+inset:0;
+pointer-events:none;
+}
+</style>
+</head>
+
+<body>
+
+<div class="effects" id="effects"></div>
+
+<!-- MUSIC -->
+<audio id="song" loop>
+  <source src="music/love.mp3" type="audio/mpeg">
+</audio>
+
+<!-- START -->
+<div id="start">
+  <div class="start-box">
+    <h1>Hey Love 💖</h1>
+    <p>A few memories.<br>A few feelings.<br>Just us 🌸</p>
+    <button class="start-btn" onclick="startStory()">Let’s see our story 💕</button>
+  </div>
+</div>
+
+<!-- MAIN -->
+<div class="card" id="card">
+
+<div class="slide active">
+<img src="photos/p1.jpg">
+<h1>How It Started ✨</h1>
+<p>Some moments arrive quietly…</p>
+
+<div class="note">
+I didn’t know that day would matter.<br>
+But it stayed with me 💖
+</div>
+
+<button class="btn" onclick="next()">Next</button>
+</div>
+
+<div class="slide">
+<img src="photos/p2.jpg">
+<h1>Little Things 🌸</h1>
+<p>The ones that make days lighter.</p>
+
+<div class="note">
+Your smile.<br>
+Your voice.<br>
+That calm feeling 🤍
+</div>
+
+<button class="btn" onclick="next()">Next</button>
+</div>
+
+<div class="slide">
+<img src="photos/p3.jpg">
+<h1>Us ❤️</h1>
+<p>Not perfect. Just honest.</p>
+
+<div class="note">
+With you,<br>
+I don’t need to pretend.<br>
+I just feel safe ✨
+</div>
+
+<button class="btn" onclick="next()">Next</button>
+</div>
+
+<div class="slide">
+<img src="photos/p4.jpg">
+<h1>Right Now… 🌙</h1>
+<p>I’m missing you.</p>
+
+<div class="note">
+If this made you smile even a little…<br>
+that’s enough for me 💕
+</div>
+
+<p style="color:#fff;margin-top:10px">
+Maybe call me? 🌸
+</p>
+
+<!-- CHANGE NUMBER -->
+<a href="tel:+911234567890" class="call">📞 Call Me</a>
+</div>
+
+</div>
+
+<script>
+/* START + MUSIC */
+const audio=document.getElementById("song");
+function startStory(){
+audio.play();
+audio.loop=true;
+document.getElementById("start").style.display="none";
+document.getElementById("card").style.display="block";
+}
+
+/* SLIDES */
+let i=0;
+const slides=document.querySelectorAll(".slide");
+function next(){
+slides[i].classList.remove("active");
+i++;
+slides[i].classList.add("active");
+}
+
+/* FLOWERS + HEARTS */
+setInterval(()=>{
+let e=document.createElement("div");
+e.innerText=["🌸","💖","🌺","✨","🥰"][Math.floor(Math.random()*5)];
+e.style.position="fixed";
+e.style.left=Math.random()*100+"vw";
+e.style.top="-20px";
+e.style.fontSize=Math.random()*22+16+"px";
+e.style.opacity=Math.random();
+e.style.transition="transform 6s linear";
+document.getElementById("effects").appendChild(e);
+setTimeout(()=>e.style.transform=`translateY(${innerHeight+40}px)`,50);
+setTimeout(()=>e.remove(),6000);
+},320);
+</script>
+
+</body>
+</html>
