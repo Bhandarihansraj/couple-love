@@ -136,12 +136,6 @@ font-family:'Dancing Script',cursive;
 font-size:1.25rem;
 line-height:1.6;
 box-shadow:0 10px 25px rgba(0,0,0,.35);
-animation:noteIn .8s ease;
-}
-
-@keyframes noteIn{
-from{opacity:0;transform:translateY(20px)}
-to{opacity:1}
 }
 
 /* BUTTON */
@@ -157,20 +151,23 @@ color:#fff;
 box-shadow:0 10px 25px rgba(255,77,141,.5);
 }
 
-/* CALL */
-.call{
-display:inline-block;
-margin-top:18px;
-padding:12px 32px;
+/* CTA BUTTONS */
+.cta{
+display:block;
+margin:12px auto;
+padding:12px 28px;
 border-radius:30px;
-background:#25D366;
-color:white;
 text-decoration:none;
 font-size:1rem;
-box-shadow:0 10px 25px rgba(0,0,0,.4);
+color:white;
+width:80%;
+max-width:260px;
 }
 
-/* FLOWERS & HEARTS */
+.call{background:#25D366}
+.insta{background:#E1306C}
+
+/* EFFECTS */
 .effects{
 position:fixed;
 inset:0;
@@ -183,7 +180,6 @@ pointer-events:none;
 
 <div class="effects" id="effects"></div>
 
-<!-- MUSIC -->
 <audio id="song" loop>
   <source src="music/love.mp3" type="audio/mpeg">
 </audio>
@@ -204,65 +200,52 @@ pointer-events:none;
 <img src="photos/p1.jpg">
 <h1>How It Started ✨</h1>
 <p>Some moments arrive quietly…</p>
-
 <div class="note">
 I didn’t know that day would matter.<br>
 But it stayed with me 💖
 </div>
-
 <button class="btn" onclick="next()">Next</button>
 </div>
 
 <div class="slide">
 <img src="photos/p2.jpg">
 <h1>Little Things 🌸</h1>
-<p>The ones that make days lighter.</p>
-
 <div class="note">
 Your smile.<br>
 Your voice.<br>
 That calm feeling 🤍
 </div>
-
 <button class="btn" onclick="next()">Next</button>
 </div>
 
 <div class="slide">
 <img src="photos/p3.jpg">
 <h1>Us ❤️</h1>
-<p>Not perfect. Just honest.</p>
-
 <div class="note">
 With you,<br>
 I don’t need to pretend.<br>
 I just feel safe ✨
 </div>
-
 <button class="btn" onclick="next()">Next</button>
 </div>
 
 <div class="slide">
 <img src="photos/p4.jpg">
-<h1>Right Now… 🌙</h1>
-<p>I’m missing you.</p>
+<h1>One Last Thing 💌</h1>
 
 <div class="note">
-If this made you smile even a little…<br>
-that’s enough for me 💕
+Want to create something like this<br>
+for your loved one?<br><br>
+Turn feelings into memories ✨
 </div>
 
-<p style="color:#fff;margin-top:10px">
-Maybe call me? 🌸
-</p>
-
-<!-- CHANGE NUMBER -->
-<a href="tel:+911234567890" class="call">📞 Call Me</a>
+<a href="tel:9429191812" class="cta call">📞 Call / WhatsApp<br>9429191812</a>
+<a href="https://instagram.com/hansraj_bhandari0" target="_blank" class="cta insta">📸 DM on Instagram<br>@hansraj_bhandari0</a>
 </div>
 
 </div>
 
 <script>
-/* START + MUSIC */
 const audio=document.getElementById("song");
 function startStory(){
 audio.play();
@@ -271,7 +254,6 @@ document.getElementById("start").style.display="none";
 document.getElementById("card").style.display="block";
 }
 
-/* SLIDES */
 let i=0;
 const slides=document.querySelectorAll(".slide");
 function next(){
@@ -280,10 +262,10 @@ i++;
 slides[i].classList.add("active");
 }
 
-/* FLOWERS + HEARTS */
+/* EFFECTS */
 setInterval(()=>{
 let e=document.createElement("div");
-e.innerText=["🌸","💖","🌺","✨","🥰"][Math.floor(Math.random()*5)];
+e.innerText=["💖","🌸","✨","🥰","❤️"][Math.floor(Math.random()*5)];
 e.style.position="fixed";
 e.style.left=Math.random()*100+"vw";
 e.style.top="-20px";
