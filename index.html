@@ -3,171 +3,150 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Our Love Story 💖</title>
+<title>Congratulations</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 
 body{
 height:100vh;
-font-family:'Poppins',sans-serif;
+font-family:'Montserrat',sans-serif;
 background:url('bg.jpg') center/cover no-repeat fixed;
 overflow:hidden;
 }
 
-/* SOFT OVERLAY */
+/* OVERLAY */
 body::before{
 content:"";
 position:fixed;
 inset:0;
-background:linear-gradient(to bottom,rgba(0,0,0,.35),rgba(0,0,0,.7));
+background:rgba(0,0,0,.75);
 z-index:-1;
 }
 
-/* START SCREEN */
+/* START */
 #start{
 position:fixed;
 inset:0;
 display:flex;
 align-items:center;
 justify-content:center;
-background:rgba(0,0,0,.55);
-z-index:100;
+background:rgba(0,0,0,.6);
+z-index:10;
 }
 
 .start-box{
-background:rgba(255,255,255,.18);
-backdrop-filter:blur(15px);
-padding:30px 40px;
-border-radius:26px;
+background:#fff;
+padding:30px 36px;
+border-radius:22px;
 text-align:center;
-color:white;
-box-shadow:0 30px 80px rgba(0,0,0,.6);
-animation:fadeIn 1s ease;
+animation:pop 1s ease;
 }
 
-@keyframes fadeIn{
+@keyframes pop{
 from{opacity:0;transform:scale(.9)}
 to{opacity:1}
 }
 
 .start-btn{
-margin-top:16px;
-padding:14px 34px;
+margin-top:14px;
+padding:12px 32px;
 border:none;
-border-radius:30px;
-font-size:1.1rem;
-cursor:pointer;
-background:linear-gradient(135deg,#ff4d8d,#ff86b3);
+border-radius:22px;
+background:#222;
 color:#fff;
-box-shadow:0 10px 25px rgba(255,77,141,.5);
+font-size:.95rem;
 }
 
-/* MAIN CARD */
-.card{
-width:94%;
-max-width:440px;
+/* PROGRESS */
+.progress{
+position:fixed;
+top:0;
+left:0;
+height:3px;
+background:#fff;
+width:0%;
+transition:width .6s ease;
+z-index:20;
+}
+
+/* MAIN */
+.container{
+width:92%;
+max-width:460px;
 margin:auto;
-margin-top:6vh;
-padding:26px;
-border-radius:28px;
-background:rgba(255,255,255,.18);
-backdrop-filter:blur(18px);
-border:1px solid rgba(255,255,255,.25);
-box-shadow:0 35px 80px rgba(0,0,0,.6);
+margin-top:7vh;
+padding:34px;
+border-radius:24px;
+background:rgba(255,255,255,.96);
+box-shadow:0 30px 90px rgba(0,0,0,.65);
 text-align:center;
 display:none;
-animation:slideUp 1s ease;
-}
-
-@keyframes slideUp{
-from{opacity:0;transform:translateY(40px)}
-to{opacity:1}
+perspective:1000px;
 }
 
 /* SLIDES */
-.slide{display:none}
-.slide.active{display:block;animation:fade .8s ease}
+.slide{
+display:none;
+opacity:0;
+transform:translateY(30px) scale(.97);
+transition:all 1s cubic-bezier(.4,0,.2,1);
+}
 
-@keyframes fade{
-from{opacity:0;transform:scale(.95)}
-to{opacity:1}
+.slide.active{
+display:block;
+opacity:1;
+transform:translateY(0) scale(1);
+}
+
+/* IMAGE */
+.img-wrap{
+width:200px;
+margin:16px auto;
+border-radius:14px;
+overflow:hidden;
+box-shadow:0 18px 40px rgba(0,0,0,.4);
+}
+
+.img-wrap img{
+width:100%;
+display:block;
+animation:slowZoom 12s linear infinite;
+}
+
+@keyframes slowZoom{
+0%{transform:scale(1)}
+100%{transform:scale(1.08)}
 }
 
 /* TEXT */
 h1{
-font-family:'Dancing Script',cursive;
-font-size:2.5rem;
-color:#fff;
-margin-bottom:6px;
+font-size:1.8rem;
+font-weight:500;
+color:#222;
 }
 
 p{
-color:#f2f2f2;
-font-size:1rem;
+font-size:.95rem;
+color:#444;
 line-height:1.7;
-margin-top:8px;
+margin-top:12px;
 }
 
-/* IMAGE */
-img{
-width:180px;
-border-radius:20px;
-margin:14px 0;
-box-shadow:0 18px 40px rgba(0,0,0,.6);
-animation:float 4s ease-in-out infinite;
-}
-
-@keyframes float{
-0%,100%{transform:translateY(0)}
-50%{transform:translateY(-8px)}
-}
-
-/* LOVE NOTE */
-.note{
-margin-top:14px;
-padding:18px;
-background:rgba(255,255,255,.9);
-border-radius:18px;
-color:#333;
-font-family:'Dancing Script',cursive;
-font-size:1.25rem;
-line-height:1.6;
-box-shadow:0 10px 25px rgba(0,0,0,.35);
-}
-
-/* BUTTON */
-.btn{
-margin-top:18px;
-padding:12px 30px;
-border:none;
-border-radius:30px;
-font-size:1rem;
-cursor:pointer;
-background:linear-gradient(135deg,#ff4d8d,#ff86b3);
+/* HINT */
+.hint{
+position:fixed;
+bottom:14px;
+left:50%;
+transform:translateX(-50%);
+font-size:.8rem;
 color:#fff;
-box-shadow:0 10px 25px rgba(255,77,141,.5);
+opacity:.7;
 }
 
-/* CTA BUTTONS */
-.cta{
-display:block;
-margin:12px auto;
-padding:12px 28px;
-border-radius:30px;
-text-decoration:none;
-font-size:1rem;
-color:white;
-width:80%;
-max-width:260px;
-}
-
-.call{background:#25D366}
-.insta{background:#E1306C}
-
-/* EFFECTS */
+/* PARTICLES */
 .effects{
 position:fixed;
 inset:0;
@@ -178,104 +157,155 @@ pointer-events:none;
 
 <body>
 
+<div class="progress" id="progress"></div>
 <div class="effects" id="effects"></div>
 
 <audio id="song" loop>
-  <source src="music/love.mp3" type="audio/mpeg">
+  <source src="music/song.mp3" type="audio/mpeg">
 </audio>
 
 <!-- START -->
 <div id="start">
   <div class="start-box">
-    <h1>Hey Love 💖</h1>
-    <p>A few memories.<br>A few feelings.<br>Just us 🌸</p>
-    <button class="start-btn" onclick="startStory()">Let’s see our story 💕</button>
+    <h1>Welcome</h1>
+    <p>A shared journey</p>
+    <button class="start-btn" onclick="start()">Begin</button>
   </div>
 </div>
 
 <!-- MAIN -->
-<div class="card" id="card">
+<div class="container" id="main">
 
 <div class="slide active">
-<img src="photos/p1.jpg">
-<h1>How It Started ✨</h1>
-<p>Some moments arrive quietly…</p>
-<div class="note">
-I didn’t know that day would matter.<br>
-But it stayed with me 💖
-</div>
-<button class="btn" onclick="next()">Next</button>
+<div class="img-wrap"><img src="photos/p1.jpg"></div>
+<h1>Where It Began</h1>
+<p>Time, conversations, and direction.</p>
 </div>
 
 <div class="slide">
-<img src="photos/p2.jpg">
-<h1>Little Things 🌸</h1>
-<div class="note">
-Your smile.<br>
-Your voice.<br>
-That calm feeling 🤍
-</div>
-<button class="btn" onclick="next()">Next</button>
+<div class="img-wrap"><img src="photos/p2.jpg"></div>
+<h1>Moving Forward</h1>
+<p>Understanding and shared decisions.</p>
 </div>
 
 <div class="slide">
-<img src="photos/p3.jpg">
-<h1>Us ❤️</h1>
-<div class="note">
-With you,<br>
-I don’t need to pretend.<br>
-I just feel safe ✨
-</div>
-<button class="btn" onclick="next()">Next</button>
+<div class="img-wrap"><img src="photos/p3.jpg"></div>
+<h1>The Commitment</h1>
+<p>A clear decision to move ahead together.</p>
 </div>
 
 <div class="slide">
-<img src="photos/p4.jpg">
-<h1>One Last Thing 💌</h1>
-
-<div class="note">
-Want to create something like this<br>
-for your loved one?<br><br>
-Turn feelings into memories ✨
+<div class="img-wrap"><img src="photos/p4.jpg"></div>
+<h1>Life Together</h1>
+<p>Stability, growth, and responsibility.</p>
 </div>
 
-<a href="tel:9429191812" class="cta call">📞 Call / WhatsApp<br>9429191812</a>
-<a href="https://instagram.com/hansraj_bhandari0" target="_blank" class="cta insta">📸 DM on Instagram<br>@hansraj_bhandari0</a>
+<div class="slide">
+<h1>Congratulations</h1>
+<p>
+From the first step<br>
+to the life you share today,<br>
+this journey reflects consistency and effort.
+</p>
+<p style="margin-top:14px">
+Wishing steady progress ahead.
+</p>
 </div>
 
 </div>
+
+<div class="hint">Auto-play enabled • Swipe to control</div>
 
 <script>
-const audio=document.getElementById("song");
-function startStory(){
-audio.play();
-audio.loop=true;
-document.getElementById("start").style.display="none";
-document.getElementById("card").style.display="block";
-}
+/* =======================
+   CONFIG
+======================= */
+const AUTO_PLAY = true;
+const SLIDE_TIME = 4000; // ms
+const FINAL_TIME = 7000;
 
+/* =======================
+   LOGIC
+======================= */
 let i=0;
-const slides=document.querySelectorAll(".slide");
-function next(){
-slides[i].classList.remove("active");
-i++;
-slides[i].classList.add("active");
+let timer=null;
+let auto=true;
+
+const slides=document.querySelectorAll('.slide');
+const progress=document.getElementById('progress');
+const song=document.getElementById('song');
+const container=document.getElementById('main');
+
+/* START */
+function start(){
+song.volume=0;
+song.play();
+let v=0;
+let fade=setInterval(()=>{
+v+=0.05;
+song.volume=v;
+if(v>=1)clearInterval(fade);
+},120);
+
+document.getElementById('start').style.display='none';
+container.style.display='block';
+updateProgress();
+
+if(AUTO_PLAY){
+timer=setTimeout(autoNext,SLIDE_TIME);
+}
 }
 
-/* EFFECTS */
+/* NEXT */
+function autoNext(){
+if(i < slides.length-1){
+slides[i].classList.remove('active');
+i++;
+slides[i].classList.add('active');
+updateProgress();
+
+let delay = (i === slides.length-1) ? FINAL_TIME : SLIDE_TIME;
+timer=setTimeout(autoNext,delay);
+}
+}
+
+/* PROGRESS */
+function updateProgress(){
+progress.style.width=((i+1)/slides.length)*100+"%";
+}
+
+/* 🔥 SWIPE (PAUSE AUTO) */
+let startX=0;
+container.addEventListener('touchstart',e=>{
+startX=e.touches[0].clientX;
+});
+container.addEventListener('touchend',e=>{
+let endX=e.changedTouches[0].clientX;
+if(startX-endX>50){
+clearTimeout(timer);
+auto=false;
+slides[i].classList.remove('active');
+i++;
+slides[i].classList.add('active');
+updateProgress();
+}
+});
+
+/* ✨ PARTICLES */
 setInterval(()=>{
-let e=document.createElement("div");
-e.innerText=["💖","🌸","✨","🥰","❤️"][Math.floor(Math.random()*5)];
-e.style.position="fixed";
-e.style.left=Math.random()*100+"vw";
-e.style.top="-20px";
-e.style.fontSize=Math.random()*22+16+"px";
-e.style.opacity=Math.random();
-e.style.transition="transform 6s linear";
-document.getElementById("effects").appendChild(e);
-setTimeout(()=>e.style.transform=`translateY(${innerHeight+40}px)`,50);
-setTimeout(()=>e.remove(),6000);
-},320);
+let p=document.createElement('div');
+p.style.position='fixed';
+p.style.left=Math.random()*100+'vw';
+p.style.top='-10px';
+p.style.width='5px';
+p.style.height='5px';
+p.style.borderRadius='50%';
+p.style.background='rgba(255,255,255,.35)';
+p.style.transition='transform 7s linear';
+document.getElementById('effects').appendChild(p);
+setTimeout(()=>p.style.transform=`translateY(${innerHeight+30}px)`,50);
+setTimeout(()=>p.remove(),7000);
+},500);
 </script>
 
 </body>
